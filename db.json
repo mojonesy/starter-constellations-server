@@ -97,6 +97,13 @@
       "meaning": "Sails",
       "starsWithPlanets": 7,
       "quadrant": "SQ2"
+    },
+    {
+      "name": "Mojo",
+      "meaning": "Lion",
+      "starsWithPlanets": 19,
+      "quadrant": "NQ2",
+      "id": "_DG54SD"
     }
   ]
 }
