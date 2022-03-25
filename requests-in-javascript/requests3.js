@@ -12,17 +12,30 @@ const BASE_URL = "http://localhost:5000";
 //   });
 
 
-  function getConstellations(ids) {
-    const promises = ids.map((id) => {
-      const url = `${BASE_URL}/constellations/${id}`;
-      return axios.delete(url);
-    });
+  // function getConstellations(ids) {
+  //   const promises = ids.map((id) => {
+  //     const url = `${BASE_URL}/constellations/${id}`;
+  //     return axios.delete(url);
+  //   });
   
-    return Promise.all(promises);
+  //   return Promise.all(promises);
+  // }
+  
+  // const ids = ["KGQIwSq", "32TN5F8"];
+  // getConstellations(ids).then((results) => {
+  //     console.log(results[0].data);
+  //     console.log(results[1].data);
+  // });
+
+  
+  async function getConstellationNameById(id) {
+    const url = `${BASE_URL}/constellations/${id}`;
+    try {
+      const { data } = await axios.get(url);
+      return data;
+    } catch (error) {
+      throw `Constellation with id of ${id} could not be found.`;
+    }
   }
-  
-  const ids = ["KGQIwSq", "32TN5F8"];
-  getConstellations(ids).then((results) => {
-      console.log(results[0].data);
-      console.log(results[1].data);
-  });
+
+  getConstellationNameById("n2OEOzp").then(console.log);
